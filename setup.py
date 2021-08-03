@@ -37,7 +37,7 @@ def get_extra_requires():
 
 
 setup(
-    name='adjust-time',
+    name='adjusttime',
     version=get_version(),
     author='sinchir0',
     packages=find_packages(),
