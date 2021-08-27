@@ -3,7 +3,7 @@ import os
 from setuptools import find_packages, setup
 
 
-PACKAGE_DIRNAME = 'adjusttime'
+PACKAGE_DIRNAME = 'adjust_time'
 ROOT_DIR = os.path.dirname(__file__)
 
 with open(os.path.join(ROOT_DIR, 'README.md')) as readme:
@@ -14,7 +14,7 @@ def get_version() -> str:
     """packageのバージョンを取得します
     実体は `PACKAGE_DIRNAME / version.py` に記載しておいてそれを取得するしくみ
     """
-    version_filepath = os.path.join(ROOT_DIR, PACKAGE_DIRNAME, 'version.py')
+    version_filepath = os.path.join(ROOT_DIR, 'src', PACKAGE_DIRNAME, 'version.py')
     with open(version_filepath) as f:
         for line in f:
             if line.startswith('__version__'):
@@ -37,17 +37,18 @@ def get_extra_requires():
 
 
 setup(
-    name='adjusttime',
+    name='adjust_time',
     version=get_version(),
     author='sinchir0',
-    packages=find_packages(),
+    packages=find_packages("src"),
+    package_dir={"":"src"},
     include_package_data=True,
     license='BSD License',
     description='',
     long_description=README,
     long_description_content_type='text/markdown',
-    url='https://atma.co.jp/',
-    author_email='yamaguchi@atma.co.jp',
+    url='',
+    author_email='',
     install_requires=_lines_from_file('requirements.txt'),
     extras_require=get_extra_requires(),
 )
